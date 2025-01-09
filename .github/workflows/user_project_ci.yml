@@ -156,7 +156,15 @@ jobs:
         with:
           name: pdk-tarball
           path: /tmp
-
+          
+      - name: Check if pdk.tar exists
+        run: |
+          if [ -f /tmp/pdk.tar ]; then
+            echo "pdk.tar found"
+          else
+            echo "pdk.tar not found"
+            exit 1
+          fi
       - name: Unpack PDK Tarball
         run: |
           sudo mkdir -p ${{ env.PDK_ROOT }}
