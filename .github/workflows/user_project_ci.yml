@@ -133,6 +133,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up Python and install dependencies
+        run: |
+          python3 -m venv $HOME/Caravel/venv
+          source $HOME/Caravel/venv/bin/activate
+          pip install -r $GITHUB_WORKSPACE/requirements.txt
+          pip install volare openlane
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
