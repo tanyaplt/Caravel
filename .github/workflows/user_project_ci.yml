@@ -137,7 +137,7 @@ jobs:
         run: |
           python3 -m venv $HOME/Caravel/venv
           source $HOME/Caravel/venv/bin/activate
-          pip install -r $GITHUB_WORKSPACE/requirements.txt
+          pip install -r $GITHUB_WORKSPACE/docs/requirements.txt
           pip install volare openlane
 
       - name: Set up QEMU
