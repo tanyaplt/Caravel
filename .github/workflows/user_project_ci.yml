@@ -177,6 +177,16 @@ jobs:
           name: openlane-tarball
           path: /tmp
 
+      - name: Check if openlane.tar exists
+        run: |
+          if [ -f /tmp/openlane.tar ]; then
+             echo "openlane.tar found"
+          else
+            echo "openlane.tar not found"
+            exit 1
+          fi
+
+
       - name: Unpack openlane Tarball
         run: |
           sudo mkdir -p ${{ env.OPENLANE_ROOT }}
